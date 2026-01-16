@@ -18,7 +18,9 @@ export const metadata: Metadata = {
     template: "%s | SnipGraph",
   },
   description: "Create beautiful code snippets images instantly. Best alternative to Carbon & Ray.so.",
-
+  verification: {
+    google: "taEEeu5tr93LSUMmAIQ_x5Pxzvc4NJGqN_AfuSaKAQI",
+  },
 };
 
 export default function RootLayout({
