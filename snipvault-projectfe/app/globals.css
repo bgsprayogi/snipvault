@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+:root {
+  color-scheme: dark;
+  /* Warna Background Figma (Deep Navy) */
+  --bg-main: #2f3a52;
+  --bg-panel: #151921; /* Warna Panel Kontrol */
+}
+
+body {
+  background-color: var(--bg-main);
+  color: #ffffff;
+  font-family: var(--font-sans), sans-serif;
+
+  /* BACKGROUND FIGMA: Glow Ungu/Biru di atas, gelap di bawah */
+  background: radial-gradient(
+    circle at 50% -20%,
+    #2e1065 0%,
+    #172554 20%,
+    #2b1b47 90%
+  );
+  background-attachment: fixed;
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* --- PANEL STYLE (ROUNDED & DARK) --- */
+.figma-panel {
+  background-color: rgba(21, 25, 33, 0.7); /* Semi transparan dark */
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px; /* Rounded besar */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* --- CUSTOM RANGE SLIDER (PENTING BIAR MIRIP FIGMA) --- */
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%;
+  background: transparent;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: #fff; /* Pentol Putih biar kontras */
+  border: 4px solid #0ea5e9; /* Ring Biru */
+  cursor: pointer;
+  margin-top: -6px; /* Center thumb vertikal */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  transition: transform 0.1s;
+}
+
+input[type="range"] {
+  -webkit-appearance: none; /* Wajib ada untuk reset default browser */
+  background: transparent;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 8px;
+  cursor: pointer;
+  border-radius: 99px;
+  /* Background ditangani oleh React Inline Style */
+}
