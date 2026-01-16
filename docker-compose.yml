@@ -1,0 +1,28 @@
+version: "3.8"
+
+services:
+  # --- BACKEND ---
+  backend:
+    build: ./snipvault-projectbe
+    container_name: snipvault-be
+    restart: always
+    ports:
+      - "5000:5000"
+    volumes:
+      # Simpan database SQLite di luar container agar tidak hilang saat restart
+      - ./snip-data:/app/db
+    environment:
+      - PORT=5000
+
+  # --- FRONTEND ---
+  frontend:
+    build: ./snipvault-projectfe
+    container_name: snipvault-fe
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      # PENTING: Arahkan ke IP Server nanti, bukan localhost user
+      - NEXT_PUBLIC_API_URL=http://localhost:5000
+    depends_on:
+      - backend
